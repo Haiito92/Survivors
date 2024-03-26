@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _Project.Runtime.Scripts.Entities.Actions
@@ -8,19 +9,30 @@ namespace _Project.Runtime.Scripts.Entities.Actions
         [SerializeField] private Transform _movedTransform;
     
         //Fields
+        private Vector2 _oldDirection;
         private Vector2 _direction;
     
         private Vector2 _velocity;
         [SerializeField] private float _speed;
 
+        //Actions
+
+        public event Action<Vector2, Vector2> OnDirectionChanged;
+        
         #region Properties
 
+        public Vector2 OldDirection
+        {
+            get => _oldDirection;
+            set => _oldDirection = value;
+        }
         public Vector2 Direction
         {
             get => _direction;
             set => _direction = value;
         }
-    
+
+
         #endregion
 
         private void FixedUpdate()
@@ -28,6 +40,14 @@ namespace _Project.Runtime.Scripts.Entities.Actions
             Walking();
         }
 
+        public void SetDirection(Vector2 dir)
+        {
+            _oldDirection = _direction;
+            _direction = dir;
+            
+            OnDirectionChanged?.Invoke(_oldDirection, _direction);
+        }
+        
         private void Walking()
         {
             _velocity = _direction.normalized * _speed;

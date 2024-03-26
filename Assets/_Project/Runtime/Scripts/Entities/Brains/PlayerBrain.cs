@@ -1,9 +1,10 @@
-using _Project.Runtime.Scripts.Entities.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace _Project.Runtime.Scripts.Entities.Brains
 {
+    using Actions;
+    
     public class PlayerBrain : MonoBehaviour
     {
         //Input Action References
@@ -17,26 +18,33 @@ namespace _Project.Runtime.Scripts.Entities.Brains
 
         private void SetWalkDirection(InputAction.CallbackContext ctx)
         {
-            if (ctx.started)
+            if (ctx.performed)
             {
-                _walk.Direction = ctx.ReadValue<Vector2>();
+                _walk.SetDirection(ctx.ReadValue<Vector2>());
             }
             else if (ctx.canceled)
             {
-                _walk.Direction = Vector2.zero;
+                _walk.SetDirection(Vector2.zero);
             }
         
+        }
+
+        private void DebugInput(InputAction.CallbackContext ctx)
+        {
+            if(ctx.started) Debug.Log(("started"));
+            if(ctx.canceled) Debug.Log(("canceled"));
+            
         }
     
         private void OnEnable()
         {
-            _walkInputAction.action.started += SetWalkDirection;
+            _walkInputAction.action.performed += SetWalkDirection;
             _walkInputAction.action.canceled += SetWalkDirection;
         }
 
         private void OnDisable()
         {
-            _walkInputAction.action.started -= SetWalkDirection;
+            _walkInputAction.action.performed -= SetWalkDirection;
             _walkInputAction.action.canceled -= SetWalkDirection;
         }
     }
