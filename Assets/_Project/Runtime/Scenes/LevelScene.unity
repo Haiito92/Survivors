@@ -7652,50 +7652,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6816482903047706350, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8746459467195451953}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
---- !u!1 &8746459467195451950 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6816482903047706350, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-  m_PrefabInstance: {fileID: 8746459467195451949}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8746459467195451951 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9064473447254641180, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-  m_PrefabInstance: {fileID: 8746459467195451949}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8746459467195451952 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2030097727273967542, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-  m_PrefabInstance: {fileID: 8746459467195451949}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4211cb848c334f4bbfc6cb0e6b85839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8746459467195451953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746459467195451950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eaa73a101ef2244d9f57dbbeb1026f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 8746459467195451951}
-  _walk: {fileID: 8746459467195451952}
-  _controller: {fileID: 22100000, guid: 87ce9623fb5ce55459a3b9ceef5a473e, type: 2}
-  _isWalkingBoolParam: IsWalking
-  _horizontalFloatParam: Horizontal
-  _verticalFloatParam: Vertical
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

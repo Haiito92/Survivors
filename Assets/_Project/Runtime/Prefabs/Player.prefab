@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 2658581895105284908}
   - component: {fileID: 5629000991584472152}
   - component: {fileID: 9064473447254641180}
+  - component: {fileID: 734471995936767281}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -295,6 +296,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &734471995936767281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816482903047706350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eaa73a101ef2244d9f57dbbeb1026f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 9064473447254641180}
+  _walk: {fileID: 2030097727273967542}
+  _controller: {fileID: 22100000, guid: 87ce9623fb5ce55459a3b9ceef5a473e, type: 2}
+  _isWalkingBoolParam: IsWalking
+  _horizontalFloatParam: Horizontal
+  _verticalFloatParam: Vertical
 --- !u!1 &8263895918893298847
 GameObject:
   m_ObjectHideFlags: 0
