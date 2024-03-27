@@ -154,6 +154,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkInputAction: {fileID: 2655848795194696352, guid: 1d5465dded1e87a4296b1c977bf31e42, type: 3}
   _walk: {fileID: 2030097727273967542}
+  _inventory: {fileID: 0}
+--- !u!1 &1358955766113013269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534343120438429203}
+  - component: {fileID: 4886722808877620082}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1534343120438429203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358955766113013269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 172417218270084926}
+  m_Father: {fileID: 611692354882568500}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4886722808877620082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358955766113013269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78119d703a4c99842b7ad4c7ff0cbe78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponInventorySize: 6
+  _weaponController: {fileID: 8517069650942644062, guid: 18a30fdbbe53f8b4ab4e3082aebbc222, type: 3}
+  _weaponsParent: {fileID: 172417218270084926}
 --- !u!1 &3321578776533197338
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +236,7 @@ Transform:
   - {fileID: 6708675570223797012}
   - {fileID: 6652042840482703915}
   - {fileID: 7220715868061255065}
+  - {fileID: 1534343120438429203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6816482903047706350
@@ -314,6 +364,37 @@ MonoBehaviour:
   _isWalkingBoolParam: IsWalking
   _horizontalFloatParam: Horizontal
   _verticalFloatParam: Vertical
+--- !u!1 &6818128204134051876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172417218270084926}
+  m_Layer: 0
+  m_Name: WeaponInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &172417218270084926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818128204134051876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1534343120438429203}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8263895918893298847
 GameObject:
   m_ObjectHideFlags: 0
