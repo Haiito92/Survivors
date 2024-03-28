@@ -7,14 +7,18 @@ namespace _Project.Runtime.Scripts.Entities.Actions
     {
         //Components References
         [SerializeField] private Transform _movedTransform;
+        [SerializeField] private SpriteRenderer _sp;
     
-        //Fields
+        //Directions
         private Vector2 _oldDirection;
         private Vector2 _direction;
     
         private Vector2 _velocity;
         [SerializeField] private float _speed;
-
+        
+        //FacingDir
+        private bool _isFacingRight = true;
+        
         //Actions
 
         public event Action<Vector2, Vector2> OnDirectionChanged;
@@ -38,6 +42,7 @@ namespace _Project.Runtime.Scripts.Entities.Actions
         private void FixedUpdate()
         {
             Walking();
+            Flip();
         }
 
         public void SetDirection(Vector2 dir)
@@ -53,6 +58,20 @@ namespace _Project.Runtime.Scripts.Entities.Actions
             _velocity = _direction.normalized * _speed;
 
             _movedTransform.position = (Vector2)_movedTransform.position + _velocity * Time.fixedDeltaTime;
+        }
+
+        private void Flip() 
+        {
+            if (_direction.x < 0 && _isFacingRight)
+            {
+                _sp.flipX = true;
+            }
+            else if (_direction.x > 0 && !_isFacingRight)
+            {
+                _sp.flipX = false;
+            }
+
+            _isFacingRight = !_isFacingRight;
         }
     }
 }

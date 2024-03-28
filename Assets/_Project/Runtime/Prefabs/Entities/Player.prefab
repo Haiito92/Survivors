@@ -154,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkInputAction: {fileID: 2655848795194696352, guid: 1d5465dded1e87a4296b1c977bf31e42, type: 3}
   _walk: {fileID: 2030097727273967542}
-  _inventory: {fileID: 0}
 --- !u!1 &1358955766113013269
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +311,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1253071515
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1780662502, guid: df97dbab9a469be46b4757afc56e43a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -362,8 +361,6 @@ MonoBehaviour:
   _walk: {fileID: 2030097727273967542}
   _controller: {fileID: 22100000, guid: 87ce9623fb5ce55459a3b9ceef5a473e, type: 2}
   _isWalkingBoolParam: IsWalking
-  _horizontalFloatParam: Horizontal
-  _verticalFloatParam: Vertical
 --- !u!1 &6818128204134051876
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,4 +437,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movedTransform: {fileID: 611692354882568500}
+  _sp: {fileID: 5629000991584472152}
   _speed: 10

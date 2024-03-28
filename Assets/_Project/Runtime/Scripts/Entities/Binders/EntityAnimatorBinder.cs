@@ -17,8 +17,6 @@ namespace _Project.Runtime.Scripts.Entities.Binders
         
         //Animator Params
         [SerializeField, AnimatorParam(nameof(_animator), AnimatorControllerParameterType.Bool)] private string _isWalkingBoolParam;
-        [SerializeField, AnimatorParam(nameof(_animator), AnimatorControllerParameterType.Float)] private string _horizontalFloatParam;
-        [SerializeField, AnimatorParam(nameof(_animator), AnimatorControllerParameterType.Float)] private string _verticalFloatParam;
         
         private void Reset()
         {
@@ -33,16 +31,6 @@ namespace _Project.Runtime.Scripts.Entities.Binders
         private void SetWalkingParams(Vector2 oldDirection, Vector2 currentDirection)
         {
             _animator.SetBool(_isWalkingBoolParam, currentDirection != Vector2.zero);
-
-            if (currentDirection == Vector2.zero)
-            {
-                _animator.SetFloat(_horizontalFloatParam, oldDirection.x);
-                _animator.SetFloat(_verticalFloatParam, oldDirection.y);
-                return;
-            }
-            
-            _animator.SetFloat(_horizontalFloatParam, currentDirection.x);
-            _animator.SetFloat(_verticalFloatParam, currentDirection.y);
         }
         
         private void OnEnable()
