@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7b6292c66be294094d62f6d6003ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walk: {fileID: 8012012706114303464}
+  _move: {fileID: 8012012706114303464}
   _target: {fileID: 0}
 --- !u!1 &1497910033345880750
 GameObject:
@@ -157,7 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movedTransform: {fileID: 4360207514897315258}
-  _sp: {fileID: 4329634268024630864}
   _speed: 2
 --- !u!1 &8935499116890469523
 GameObject:
@@ -279,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7478171636308295837}
-  _walk: {fileID: 8012012706114303464}
+  _sp: {fileID: 4329634268024630864}
+  _move: {fileID: 8012012706114303464}
   _controller: {fileID: 22100000, guid: 3aa5393fd66e0d949adbb4146b4409e1, type: 2}
   _isWalkingBoolParam: IsWalking
