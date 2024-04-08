@@ -1,29 +1,45 @@
-using System.Collections;
 using UnityEngine;
 
 namespace _Project.Runtime.Scripts.Weapons
 {
-    public class Weapon : MonoBehaviour
+    [System.Serializable]
+    public class Weapon
     {
-        //Weapon State and Type
-        
         //Bullet Prefab
-        private GameObject _bullet;
+        [SerializeField] private GameObject _bullet;
+        
+        //Pool
+        private Pool _weaponPool;
+        
+        //Weapon Timer
+        private float _weaponTimer;
         
         //Weapon stats
-        private float _attackSpeed;
-                
-        //Coroutines
-        private Coroutine _shoot;
+        [SerializeField] private float _attackSpeed;
 
-        private void Start()
+        public Weapon(Transform poolParent, GameObject bulletPrefab)
         {
-            _shoot = StartCoroutine(Shoot());
+            _weaponPool = new Pool(poolParent);
+            
+            _bullet = bulletPrefab;
+
+            _attackSpeed = 2;
+        }
+        
+        public void CheckTimer()
+        {
+            _weaponTimer += Time.deltaTime;
+
+            if (_weaponTimer >= _attackSpeed)
+            {
+                Shoot();
+                _weaponTimer = 0;
+            }
         }
 
-        private IEnumerator Shoot()
+        private void Shoot()
         {
-            yield return new WaitForSeconds(_attackSpeed);
+            _weaponPool.InstantiateObject(_bullet);
         }
     }
 }

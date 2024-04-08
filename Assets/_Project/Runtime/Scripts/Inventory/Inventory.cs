@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Project.Runtime.Scripts.Inventory
@@ -6,25 +8,25 @@ namespace _Project.Runtime.Scripts.Inventory
     
     public class Inventory : MonoBehaviour
     {
-    
         //Weapon Inventory
-        private Weapon[] _weaponInventory;
+        [SerializeField] private List<Weapon> _weaponInventory = new List<Weapon>();
         [SerializeField] private int _weaponInventorySize;
-    
-        //Weapon Prefab
-        [SerializeField] private GameObject _weaponController;
-        [SerializeField] private Transform _weaponsParent;
 
-        private void Awake()
+        //Temp (remove that after instantiate tests)
+        [SerializeField] private GameObject _bulletPrefab;
+        
+        private void Start()
         {
-            _weaponInventory = new Weapon[_weaponInventorySize];
-            // for (int i = 0; i < _weaponInventory.Length; i++)
-            // {
-            //     GameObject go = Instantiate(_weaponController, _weaponsParent);
-            //     _weaponInventory[i] = go.GetComponent<Weapon>();
-            // }
-            GameObject go = Instantiate(_weaponController, _weaponsParent);
-            _weaponInventory[0] = go.GetComponent<Weapon>();
+            GameObject poolParent = Instantiate(new GameObject("WeaponPool"), transform);
+            _weaponInventory.Add(new Weapon(poolParent.transform, _bulletPrefab));
+        }
+
+        private void Update()
+        {
+            foreach (Weapon weapon in _weaponInventory)
+            {
+                weapon.CheckTimer();
+            }
         }
     }
 }
