@@ -1,3 +1,4 @@
+using _Project.Runtime.SO.Scripts.Weapon;
 using UnityEngine;
 
 namespace _Project.Runtime.Scripts.Weapons
@@ -5,25 +6,25 @@ namespace _Project.Runtime.Scripts.Weapons
     [System.Serializable]
     public class Weapon
     {
-        //Bullet Prefab
-        [SerializeField] private GameObject _bullet;
-        
-        //Pool
-        private Pool _weaponPool;
+        //Weapon stats
+        [SerializeField] private float _attackSpeed;
         
         //Weapon Timer
         private float _weaponTimer;
         
-        //Weapon stats
-        [SerializeField] private float _attackSpeed;
+        //Pool
+        private Pool _weaponPool;
+        
+        //Bullet Prefab
+        [SerializeField] private GameObject _bullet;
 
-        public Weapon(Transform poolParent, GameObject bulletPrefab)
+        public Weapon(WeaponSO weaponSo, Transform poolParent)
         {
-            _weaponPool = new Pool(poolParent);
+            _attackSpeed = weaponSo.BaseAttackSpeed;
             
-            _bullet = bulletPrefab;
+            _weaponPool = new Pool(poolParent);
 
-            _attackSpeed = 2;
+            _bullet = weaponSo.BulletPrefab;
         }
         
         public void CheckTimer()

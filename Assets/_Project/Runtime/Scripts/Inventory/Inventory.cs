@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Project.Runtime.Scripts.Inventory
 {
+    using SO.Scripts.Weapon;
     using Weapons;
     
     public class Inventory : MonoBehaviour
@@ -13,12 +13,11 @@ namespace _Project.Runtime.Scripts.Inventory
         [SerializeField] private int _weaponInventorySize;
 
         //Temp (remove that after instantiate tests)
-        [SerializeField] private GameObject _bulletPrefab;
+        [SerializeField] private WeaponSO _testWeaponSO;
         
         private void Start()
         {
-            GameObject poolParent = Instantiate(new GameObject("WeaponPool"), transform);
-            _weaponInventory.Add(new Weapon(poolParent.transform, _bulletPrefab));
+            AddWeapon(_testWeaponSO);
         }
 
         private void Update()
@@ -27,6 +26,12 @@ namespace _Project.Runtime.Scripts.Inventory
             {
                 weapon.CheckTimer();
             }
+        }
+
+        private void AddWeapon(WeaponSO weaponSo)
+        {
+            GameObject poolParent = Instantiate(new GameObject($"{weaponSo.WeaponName} Pool"), transform);
+            _weaponInventory.Add(new Weapon(weaponSo, poolParent.transform));
         }
     }
 }
