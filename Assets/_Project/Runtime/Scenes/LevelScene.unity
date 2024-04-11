@@ -7549,6 +7549,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 611692354882568500, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
   m_PrefabInstance: {fileID: 8746459467195451949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1178014262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178014264}
+  - component: {fileID: 1178014265}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1178014264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178014262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1178014265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178014262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b739986036bb771458c6a652fa5b71dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: 6e759129417608d45bc7755ce9395d92, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
 --- !u!1 &1333864296
 GameObject:
   m_ObjectHideFlags: 0
@@ -7750,7 +7807,7 @@ PrefabInstance:
     - target: {fileID: 9160576052012851120, guid: 9d2a06b162dc0e94583b2250a4964659, type: 3}
       propertyPath: _target
       value: 
-      objectReference: {fileID: 836983421}
+      objectReference: {fileID: 8746459467195451950}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7804,25 +7861,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2030097727273967542, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-      propertyPath: _movedTransform
-      value: 
-      objectReference: {fileID: 8746459467195451950}
     - target: {fileID: 3321578776533197338, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
       propertyPath: m_Name
       value: PlayerParent
-      objectReference: {fileID: 0}
-    - target: {fileID: 6282823395011235024, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-      propertyPath: _bulletPrefab
-      value: 
-      objectReference: {fileID: 5326079579780539542, guid: fccc2793592d19941af5e6d203c64b79, type: 3}
-    - target: {fileID: 6282823395011235024, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-      propertyPath: _testWeaponSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 9365a669a4db188499335b182468b99b, type: 2}
-    - target: {fileID: 6282823395011235024, guid: 76678cb6e26cce8418bc4f75b79062b2, type: 3}
-      propertyPath: _weaponInventory.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7842,3 +7883,4 @@ SceneRoots:
   - {fileID: 1333864297}
   - {fileID: 724222088}
   - {fileID: 1565325708}
+  - {fileID: 1178014264}

@@ -6,7 +6,7 @@ namespace _Project.Runtime.Scripts.Entities.Actions
     public class Move : MonoBehaviour
     {
         //Components References
-        [SerializeField] private Transform _movedTransform;
+        [SerializeField] private Rigidbody2D _rb;
     
         //Directions
         private Vector2 _oldDirection;
@@ -50,9 +50,7 @@ namespace _Project.Runtime.Scripts.Entities.Actions
         
         private void Walking()
         {
-            _velocity = _direction.normalized * _speed;
-
-            _movedTransform.position = (Vector2)_movedTransform.position + _velocity * Time.fixedDeltaTime;
+            _rb.velocity = _direction.normalized * _speed;
         }
 
         

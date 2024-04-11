@@ -1,3 +1,4 @@
+using _Project.Runtime.Scripts.Utilities;
 using UnityEngine;
 
 namespace _Project.Runtime.Scripts.Managers
@@ -7,7 +8,7 @@ namespace _Project.Runtime.Scripts.Managers
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log(CameraUtilities.GetCamWorldBoundingBox());
+            
         }
 
     }

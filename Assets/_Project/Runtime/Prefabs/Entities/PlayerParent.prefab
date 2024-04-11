@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559fb8604a226324380597b04614c715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walk: {fileID: 2030097727273967542}
+  _move: {fileID: 2030097727273967542}
   _walkInputAction: {fileID: 2655848795194696352, guid: 1d5465dded1e87a4296b1c977bf31e42, type: 3}
 --- !u!1 &1173528750320795117
 GameObject:
@@ -163,6 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3236085225917941775}
+  - component: {fileID: 3687256205740056850}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -189,6 +190,33 @@ Transform:
   - {fileID: 7220715868061255065}
   m_Father: {fileID: 611692354882568500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3687256205740056850
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173528750320795117}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &3321578776533197338
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 9064473447254641180}
-  _walk: {fileID: 2030097727273967542}
+  _sp: {fileID: 5629000991584472152}
+  _move: {fileID: 2030097727273967542}
   _controller: {fileID: 22100000, guid: 87ce9623fb5ce55459a3b9ceef5a473e, type: 2}
   _isWalkingBoolParam: IsWalking
 --- !u!1 &8263895918893298847
@@ -389,9 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4211cb848c334f4bbfc6cb0e6b85839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movedTransform: {fileID: 611692354882568500}
-  _sp: {fileID: 5629000991584472152}
-  _speed: 10
+  _rb: {fileID: 3687256205740056850}
+  _speed: 7
 --- !u!1 &8354761295625139325
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,3 +466,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponInventory: []
   _weaponInventorySize: 6
+  _testWeaponSO: {fileID: 11400000, guid: 9365a669a4db188499335b182468b99b, type: 2}

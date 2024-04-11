@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public static class CameraUtilities
+namespace _Project.Runtime.Scripts.Utilities
 {
-    public static Rect GetCamWorldBoundingBox()
+    public static class CameraUtilities
     {
-        Camera cam = Camera.main;
+        private static Camera Cam => Camera.main;
+        
+        public static Rect GetCamWorldBoundingBox()
+        {
+            Vector2 min = Cam.ScreenToWorldPoint(Vector2.zero);
+            Vector2 max = Cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
-        Vector2 min = cam.ScreenToWorldPoint(Vector2.zero);
-        Vector2 max = cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+            Vector2 size = max - min;
+            
+            return new Rect(min, size);
+        }
 
-        Vector2 size = max - min;
+        public static bool IsInsideCamWorldBoundingBox(Rect rect)
+        {
+            Rect camWorldRect = GetCamWorldBoundingBox();
 
-        return new Rect(min, size);
+            return rect.Overlaps(camWorldRect);
+        }
     }
 }

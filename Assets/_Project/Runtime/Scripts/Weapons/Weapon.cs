@@ -1,3 +1,5 @@
+using _Project.Runtime.Scripts.Pool;
+using _Project.Runtime.Scripts.Weapons.Bullets;
 using _Project.Runtime.SO.Scripts.Weapon;
 using UnityEngine;
 
@@ -13,7 +15,7 @@ namespace _Project.Runtime.Scripts.Weapons
         private float _weaponTimer;
         
         //Pool
-        private Pool _weaponPool;
+        private Pool<IBullet> _weaponPool;
         
         //Bullet Prefab
         [SerializeField] private GameObject _bullet;
@@ -22,7 +24,7 @@ namespace _Project.Runtime.Scripts.Weapons
         {
             _attackSpeed = weaponSo.BaseAttackSpeed;
             
-            _weaponPool = new Pool(poolParent);
+            _weaponPool = new Pool<IBullet>(poolParent);
 
             _bullet = weaponSo.BulletPrefab;
         }
@@ -40,7 +42,8 @@ namespace _Project.Runtime.Scripts.Weapons
 
         private void Shoot()
         {
-            _weaponPool.InstantiateObject(_bullet);
+            IBullet bullet = _weaponPool.InstantiateObject(_bullet);
+            bullet.InitializeBullet();           
         }
     }
 }

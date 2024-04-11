@@ -1,9 +1,11 @@
 using System;
+using _Project.Runtime.Scripts.Pool;
+using _Project.Runtime.Scripts.Utilities;
 using UnityEngine;
 
 namespace _Project.Runtime.Scripts.Weapons.Bullets
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour, IBullet, IPoolable
     {
         //Setup
         [SerializeField] private Rigidbody2D _rb;
@@ -14,21 +16,18 @@ namespace _Project.Runtime.Scripts.Weapons.Bullets
     
         void Start()
         {
+            InitializeBullet();
+        }
+
+        public void InitializeBullet()
+        {
+            transform.position = Vector3.zero;
             _rb.velocity = transform.right * _bulletSpeed;
         }
 
-        private void FixedUpdate()
+        public void ResetPoolable()
         {
-            if (!IsBulletOnScreen())
-            {
-                gameObject.SetActive(false);
-            }
-        }
-
-        private bool IsBulletOnScreen()
-        {
-            Rect rect = CameraUtilities.GetCamWorldBoundingBox();
-            return true;
+            InitializeBullet();
         }
     }
 }
