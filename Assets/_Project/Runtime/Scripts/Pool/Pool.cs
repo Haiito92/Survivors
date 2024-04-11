@@ -20,6 +20,9 @@ namespace _Project.Runtime.Scripts.Pool
             if (HasAvailableObject(out GameObject availableObject))
             {
                 availableObject.SetActive(true);
+                
+                _poolObjects[availableObject].ResetPoolable();
+                
                 return _poolObjects[availableObject];
             }
         
