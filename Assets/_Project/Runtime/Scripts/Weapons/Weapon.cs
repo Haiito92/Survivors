@@ -8,6 +8,9 @@ namespace _Project.Runtime.Scripts.Weapons
     [System.Serializable]
     public class Weapon
     {
+        //OwnerPlayer
+        private Transform _ownerTransform;
+        
         //Weapon stats
         [SerializeField] private float _attackSpeed;
         
@@ -15,16 +18,18 @@ namespace _Project.Runtime.Scripts.Weapons
         private float _weaponTimer;
         
         //Pool
-        private Pool<IBullet> _weaponPool;
+        private Pool<Bullet> _weaponPool;
         
         //Bullet Prefab
         [SerializeField] private GameObject _bullet;
 
-        public Weapon(WeaponSO weaponSo, Transform poolParent)
+        public Weapon(WeaponSO weaponSo, Transform ownerTransform, Transform poolParent)
         {
+            _ownerTransform = ownerTransform;
+            
             _attackSpeed = weaponSo.BaseAttackSpeed;
             
-            _weaponPool = new Pool<IBullet>(poolParent);
+            _weaponPool = new Pool<Bullet>(poolParent);
 
             _bullet = weaponSo.BulletPrefab;
         }
@@ -42,7 +47,7 @@ namespace _Project.Runtime.Scripts.Weapons
 
         private void Shoot()
         {
-            IBullet bullet = _weaponPool.InstantiateObject(_bullet);
+            Bullet bullet = _weaponPool.InstantiateObject(_bullet, _ownerTransform.position, _ownerTransform.rotation);
             bullet.InitializeBullet();           
         }
     }

@@ -8,6 +8,9 @@ namespace _Project.Runtime.Scripts.Inventory
     
     public class Inventory : MonoBehaviour
     {
+        //OwnerPlayer
+        [SerializeField] private Transform _ownerTransform;
+        
         //Weapon Inventory
         [SerializeField] private List<Weapon> _weaponInventory = new List<Weapon>();
         [SerializeField] private int _weaponInventorySize;
@@ -31,7 +34,7 @@ namespace _Project.Runtime.Scripts.Inventory
         private void AddWeapon(WeaponSO weaponSo)
         {
             GameObject poolParent = Instantiate(new GameObject($"{weaponSo.WeaponName} Pool"), transform);
-            _weaponInventory.Add(new Weapon(weaponSo, poolParent.transform));
+            _weaponInventory.Add(new Weapon(weaponSo, _ownerTransform, poolParent.transform));
         }
     }
 }

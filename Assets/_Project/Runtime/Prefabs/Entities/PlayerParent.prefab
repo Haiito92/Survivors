@@ -464,6 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78119d703a4c99842b7ad4c7ff0cbe78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ownerTransform: {fileID: 3236085225917941775}
   _weaponInventory: []
   _weaponInventorySize: 6
   _testWeaponSO: {fileID: 11400000, guid: 9365a669a4db188499335b182468b99b, type: 2}

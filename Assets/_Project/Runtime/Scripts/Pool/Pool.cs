@@ -15,18 +15,18 @@ namespace _Project.Runtime.Scripts.Pool
             _poolObjects = new Dictionary<GameObject, T>();
         }
 
-        public T InstantiateObject(GameObject prefab)
+        public T InstantiateObject(GameObject prefab, Vector2 position, Quaternion rotation = default, Transform parent = null)
         {
             if (HasAvailableObject(out GameObject availableObject))
             {
                 availableObject.SetActive(true);
                 
-                _poolObjects[availableObject].ResetPoolable();
+                _poolObjects[availableObject].InitPoolable(position, rotation);
                 
                 return _poolObjects[availableObject];
             }
-        
-            return CreateNewObject(prefab);
+
+            return CreateNewObject(prefab, position, rotation, parent);
         }
     
         private bool HasAvailableObject(out GameObject availableObject)
@@ -45,9 +45,9 @@ namespace _Project.Runtime.Scripts.Pool
             return false;
         }
 
-        private T CreateNewObject(GameObject prefab)
+        private T CreateNewObject(GameObject prefab, Vector2 position, Quaternion rotation, Transform parent)
         {
-            GameObject createdGO = GameObject.Instantiate(prefab, _poolParent);
+            GameObject createdGO = parent == null ? Object.Instantiate(prefab, position, rotation, _poolParent) : Object.Instantiate(prefab, position, rotation, parent);
 
             T createdComponent = createdGO.GetComponent<T>();
             
