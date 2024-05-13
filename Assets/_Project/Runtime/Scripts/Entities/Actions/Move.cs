@@ -15,6 +15,9 @@ namespace _Project.Runtime.Scripts.Entities.Actions
         private Vector2 _velocity;
         [SerializeField] private float _speed;
         
+        //FacingDir
+        private bool _isFacingRight = true;
+        
         //Actions
 
         public event Action<Vector2, Vector2> OnDirectionChanged;
@@ -45,6 +48,8 @@ namespace _Project.Runtime.Scripts.Entities.Actions
             _oldDirection = _direction;
             _direction = dir;
             
+            Flip();
+            
             OnDirectionChanged?.Invoke(_oldDirection, _direction);
         }
         
@@ -53,6 +58,14 @@ namespace _Project.Runtime.Scripts.Entities.Actions
             _rb.velocity = _direction.normalized * _speed;
         }
 
-        
+        private void Flip()
+        {
+            if ((_direction.x < 0 && _isFacingRight) || (_direction.x > 0 && !_isFacingRight))
+            {
+                _rb.transform.Rotate(0f,180f,0f ); 
+                
+                _isFacingRight = !_isFacingRight;
+            }
+        }
     }
 }
